@@ -1,5 +1,6 @@
 package com.claytoneduard.services.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,9 +26,11 @@ public class User implements Serializable {
   private String phone;
   private String password;
 
+  //colocando @JsonIgnores para não entrar em loop
+  @JsonIgnore
   // associanado a classe Order
   @OneToMany(mappedBy = "client")
-  private List<Order> orders =  new ArrayList<Order>();
+  private List<Order> orders = new ArrayList<Order>();
 
   public User() {}
 
