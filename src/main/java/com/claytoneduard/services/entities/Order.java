@@ -1,6 +1,6 @@
 package com.claytoneduard.services.entities;
 
-import com.claytoneduard.services.entities.enums.OrderStatus;
+import com.claytoneduard.services.enums.OrderStatus;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

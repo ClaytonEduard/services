@@ -1,4 +1,4 @@
-package com.claytoneduard.services.entities.enums;
+package com.claytoneduard.services.enums;
 
 public enum OrderStatus {
   // definir a numeracao para manutencoes posteriores

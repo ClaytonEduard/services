@@ -4,7 +4,7 @@ import com.claytoneduard.services.entities.Category;
 import com.claytoneduard.services.entities.Order;
 import com.claytoneduard.services.entities.Product;
 import com.claytoneduard.services.entities.User;
-import com.claytoneduard.services.entities.enums.OrderStatus;
+import com.claytoneduard.services.enums.OrderStatus;
 import com.claytoneduard.services.repositories.CategoryRepository;
 import com.claytoneduard.services.repositories.OrderRepository;
 import com.claytoneduard.services.repositories.ProductRepository;
