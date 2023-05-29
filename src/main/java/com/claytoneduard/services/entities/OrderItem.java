@@ -1,6 +1,8 @@
 package com.claytoneduard.services.entities;
 
 import com.claytoneduard.services.entities.pk.OrderItemPK;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -11,9 +13,9 @@ import java.io.Serializable;
 public class OrderItem implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
+  // sempre que foi um classe com id composto deve iniciala
   @EmbeddedId
-  private OrderItemPK id;
+  private OrderItemPK id = new OrderItemPK();
 
   private Integer quantity;
   private Double price;
@@ -33,6 +35,7 @@ public class OrderItem implements Serializable {
   }
 
   // criar os getters e setters do Order e Product pois a ide nao identifica
+  @JsonIgnore
   public Order getOrder() {
     return id.getOrder();
   }

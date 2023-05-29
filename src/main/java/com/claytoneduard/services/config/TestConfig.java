@@ -2,10 +2,12 @@ package com.claytoneduard.services.config;
 
 import com.claytoneduard.services.entities.Category;
 import com.claytoneduard.services.entities.Order;
+import com.claytoneduard.services.entities.OrderItem;
 import com.claytoneduard.services.entities.Product;
 import com.claytoneduard.services.entities.User;
 import com.claytoneduard.services.enums.OrderStatus;
 import com.claytoneduard.services.repositories.CategoryRepository;
+import com.claytoneduard.services.repositories.OrderItemRepository;
 import com.claytoneduard.services.repositories.OrderRepository;
 import com.claytoneduard.services.repositories.ProductRepository;
 import com.claytoneduard.services.repositories.UserRepository;
@@ -31,6 +33,9 @@ public class TestConfig implements CommandLineRunner {
 
   @Autowired
   private ProductRepository productRepository;
+
+  @Autowired
+  private OrderItemRepository orderItemRepository;
 
   @Override
   public void run(String... args) throws Exception {
@@ -118,10 +123,18 @@ public class TestConfig implements CommandLineRunner {
     p3.getCategories().add(cat3);
     p4.getCategories().add(cat3);
     p5.getCategories().add(cat2);
-    // salvando novamente para 
+    // salvando novamente para
     productRepository.saveAll(Arrays.asList(p1, p2, p3, p4, p5));
 
     userRepository.saveAll(Arrays.asList(u1, u2));
     orderRepository.saveAll(Arrays.asList(o1, o2, o3));
+
+    OrderItem oi1 = new OrderItem(o1, p1, 2, p1.getPrice());
+    OrderItem oi2 = new OrderItem(o1, p3, 1, p3.getPrice());
+    OrderItem oi3 = new OrderItem(o2, p3, 2, p3.getPrice());
+    OrderItem oi4 = new OrderItem(o3, p5, 2, p5.getPrice());
+
+    orderItemRepository.saveAll(Arrays.asList(oi1,oi2,oi3,oi4));
+
   }
 }
