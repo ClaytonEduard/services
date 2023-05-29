@@ -7,10 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name = "tb_product")
@@ -40,6 +43,10 @@ public class Product implements Serializable {
   )
   // set é uma interface
   private Set<Category> categories = new HashSet<>();
+  // para adimitir repetições do mesmo item
+  //associacao um para muitos com a tabela OrderItemPK que possui os ids
+  @OneToMany(mappedBy = "id.product")
+  private Set<OrderItem> items = new HashSet<>();
 
   public Product() {}
 
@@ -99,6 +106,15 @@ public class Product implements Serializable {
 
   public Set<Category> getCategories() {
     return categories;
+  }
+
+ @JsonIgnore
+  public Set<Order> getOrders(){
+      Set<Order> set = new HashSet<>();
+      for(OrderItem x : items){
+        set.add(x.getOrder());
+      }
+      return set;
   }
 
   @Override
