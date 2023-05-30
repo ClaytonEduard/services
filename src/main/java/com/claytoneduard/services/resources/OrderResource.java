@@ -1,7 +1,8 @@
 package com.claytoneduard.services.resources;
 
 import com.claytoneduard.services.entities.Order;
-import com.claytoneduard.services.servicess.OrderService;
+import com.claytoneduard.services.services.OrderService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

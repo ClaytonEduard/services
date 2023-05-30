@@ -1,10 +1,11 @@
-package com.claytoneduard.services.servicess;
+package com.claytoneduard.services.services;
 
 import com.claytoneduard.services.entities.User;
 import com.claytoneduard.services.repositories.UserRepository;
+import com.claytoneduard.services.services.exceptions.ResourceNotFoundException;
+
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,7 +21,8 @@ public class UserService {
 
   public User findById(Long id) {
     Optional<User> obj = repository.findById(id);
-    return obj.isPresent() ? obj.get() : null;
+    return obj.orElseThrow(() -> new ResourceNotFoundException(id));// orElse, verifica se tem usuario se nao tiver ele
+                                                                    // lanca uma exception, ah personalizada
   }
 
   // retornar o user salvo
@@ -28,7 +30,7 @@ public class UserService {
     return repository.save(obj);
   }
 
-  //deleção do user
+  // deleção do user
   public void delete(Long id) {
     repository.deleteById(id);
   }

@@ -1,4 +1,4 @@
-package com.claytoneduard.services.servicess;
+package com.claytoneduard.services.services;
 
 import com.claytoneduard.services.entities.Order;
 import com.claytoneduard.services.repositories.OrderRepository;

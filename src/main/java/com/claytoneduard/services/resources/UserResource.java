@@ -1,7 +1,8 @@
 package com.claytoneduard.services.resources;
 
 import com.claytoneduard.services.entities.User;
-import com.claytoneduard.services.servicess.UserService;
+import com.claytoneduard.services.services.UserService;
+
 import java.net.URI;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

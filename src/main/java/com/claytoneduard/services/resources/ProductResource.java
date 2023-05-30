@@ -1,7 +1,8 @@
 package com.claytoneduard.services.resources;
 
 import com.claytoneduard.services.entities.Product;
-import com.claytoneduard.services.servicess.ProductService;
+import com.claytoneduard.services.services.ProductService;
+
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
